@@ -1,0 +1,9 @@
+<form method="post" action="/">
+  <input type="text" name="text">
+  <button type="submit">Submit</button>
+</form>
+<ul>
+  <% @selfies.each do |selfie| %>
+    <li><%= selfie.text %></li>
+  <% end %>
+</ul>

@@ -8,5 +8,16 @@ require_relative 'models/selfie'
 
 get '/' do
   @selfies = Selfie.all
-  @selfies.inspect
+  erb :index
+end
+
+post '/' do
+  @selfie = Selfie.new(text: params[:text])
+  if @selfie.save
+    redirect '/'
+  end
+end
+
+after do
+  ActiveRecord::Base.connection.close
 end
