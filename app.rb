@@ -7,7 +7,7 @@ require_relative 'db/connection'
 require_relative 'models/selfie'
 
 get '/' do
-  @selfies = Selfie.all
+  @selfies = Selfie.all.reverse
   erb :index
 end
 
