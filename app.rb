@@ -7,15 +7,20 @@ require_relative 'db/connection'
 require_relative 'models/selfie'
 
 get '/' do
-  @selfies = Selfie.all.reverse
   erb :index
 end
 
 post '/' do
-  @selfie = Selfie.new(text: params[:text])
   if @selfie.save
     redirect '/'
+  else
+    erb :index
   end
+end
+
+before do
+  @selfie = Selfie.new(text: params[:text])
+  @selfies = Selfie.all.reverse
 end
 
 after do

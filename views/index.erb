@@ -1,3 +1,11 @@
+<% if @selfie.errors.any? %>
+  Error!
+  <ul>
+    <% @selfie.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<% end %>
 <form method="post" action="/">
   <input type="text" name="text">
   <button type="submit">Submit</button>
