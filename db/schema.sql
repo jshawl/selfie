@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS selfies;
+CREATE TABLE selfies (
+  id SERIAL PRIMARY KEY,
+  text TEXT NOT NULL
+);
