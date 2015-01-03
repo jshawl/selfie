@@ -7,5 +7,6 @@ require_relative 'db/connection'
 require_relative 'models/selfie'
 
 get '/' do
-  "hello world"
+  @selfies = Selfie.all
+  @selfies.inspect
 end
